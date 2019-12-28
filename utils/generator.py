@@ -52,11 +52,11 @@ class Generator:
         seq_len = np.ndarray(shape=(len(labels), 6))
         
         for idx, label in enumerate(labels):
-            digit1[idx,:] = to_categorical(label[0], self.classes)
-            digit2[idx,:] = to_categorical(label[1], self.classes)
-            digit3[idx,:] = to_categorical(label[2], self.classes)
-            digit4[idx,:] = to_categorical(label[3], self.classes)
-            digit5[idx,:] = to_categorical(label[4], self.classes)
+            digit1[idx,:] = to_categorical(label[0]-1, self.classes)
+            digit2[idx,:] = to_categorical(label[1]-1, self.classes)
+            digit3[idx,:] = to_categorical(label[2]-1, self.classes)
+            digit4[idx,:] = to_categorical(label[3]-1, self.classes)
+            digit5[idx,:] = to_categorical(label[4]-1, self.classes)
             seq_len[idx,:] = to_categorical(label[5], 6)
             
         return [digit1, digit2, digit3, digit4, digit5, seq_len]
